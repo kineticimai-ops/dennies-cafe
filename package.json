@@ -1,0 +1,17 @@
+{
+  "name": "dennies-cafe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dennie's Cafe website - Cowfold, West Sussex",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
