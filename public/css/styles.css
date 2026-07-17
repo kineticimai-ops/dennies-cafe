@@ -140,6 +140,10 @@ img { max-width: 100%; display: block; }
 
 .reviews { background: var(--cream-dark); }
 
+.find-us {
+  border-top: 1px solid var(--cream-dark);
+}
+
 .rating-badge {
   font-size: 1.5rem;
   font-weight: bold;

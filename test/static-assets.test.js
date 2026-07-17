@@ -22,4 +22,5 @@ test('GET /css/styles.css is served as CSS', async () => {
   const body = await res.text();
   assert.match(body, /\.nav__call/);
   assert.match(body, /\.hero__cta/);
+  assert.match(body, /\.find-us/);
 });
