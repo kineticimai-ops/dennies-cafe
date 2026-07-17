@@ -42,3 +42,49 @@ test('GET / has a tel: link with the correct phone number', async () => {
   const body = await res.text();
   assert.match(body, /href="tel:\+441403900317"/);
 });
+
+test('GET / includes menu highlights linking to /menu', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  assert.match(body, /Full English Breakfast/);
+  assert.match(body, /£9\.50/);
+  assert.match(body, /href="\/menu"/);
+});
+
+test('GET / includes the reviews section with rating badge and Google link', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  assert.match(body, /4\.9★/);
+  assert.match(body, /Read our reviews on Google/);
+});
+
+test('GET / includes the find-us section with address, map, and phone', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  assert.match(body, /7a Elm Grove, Station Road, Cowfold, Horsham RH13 8DA/);
+  assert.match(body, /<iframe/);
+  assert.match(body, /id="find-us"/);
+});
+
+test('GET / footer has character-identical NAP', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  assert.match(body, /class="site-footer"/);
+  assert.match(body, /Dennie's Cafe/);
+  assert.match(body, /7a Elm Grove, Station Road, Cowfold, Horsham RH13 8DA/);
+  assert.match(body, /01403 900317/);
+});
+
+test('GET / has valid CafeOrCoffeeShop JSON-LD schema', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  const match = body.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  assert.ok(match, 'JSON-LD script tag not found');
+  const schema = JSON.parse(match[1]);
+  assert.strictEqual(schema['@type'], 'CafeOrCoffeeShop');
+  assert.strictEqual(schema.name, "Dennie's Cafe");
+  assert.strictEqual(schema.telephone, '+441403900317');
+  assert.strictEqual(schema.address.postalCode, 'RH13 8DA');
+  assert.strictEqual(schema.hasMenu, 'https://denniescafe.co.uk/menu');
+  assert.strictEqual(schema.openingHoursSpecification.length, 2);
+});

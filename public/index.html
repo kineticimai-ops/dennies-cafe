@@ -8,6 +8,46 @@
 <meta name="description" content="Family-run village cafe in Cowfold, West Sussex. Cooked breakfasts, freshly made sandwiches, cakes and proper coffee. Eat in or take away. Open Mon–Sat.">
 <link rel="canonical" href="https://denniescafe.co.uk/">
 <link rel="stylesheet" href="/css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Dennie's Cafe",
+  "image": "https://denniescafe.co.uk/images/hero.svg",
+  "url": "https://denniescafe.co.uk/",
+  "telephone": "+441403900317",
+  "priceRange": "£",
+  "servesCuisine": "Café",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7a Elm Grove, Station Road",
+    "addressLocality": "Cowfold",
+    "addressRegion": "West Sussex",
+    "postalCode": "RH13 8DA",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.9989,
+    "longitude": -0.2781
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:30",
+      "closes": "15:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "08:30",
+      "closes": "14:30"
+    }
+  ],
+  "hasMenu": "https://denniescafe.co.uk/menu"
+}
+</script>
 </head>
 <body>
 
@@ -44,6 +84,43 @@
   <p>Everything made fresh to order. Eat in or take away.</p>
   <p>Daily specials — ask when you visit.</p>
 </section>
+
+<section class="section">
+  <h2>Menu Highlights</h2>
+  <div class="menu-highlights">
+    <div class="menu-card"><span>Full English Breakfast</span><span>£9.50</span></div>
+    <div class="menu-card"><span>Bacon Sandwich</span><span>£5.25</span></div>
+    <div class="menu-card"><span>Latte</span><span>£3.25 / £3.50</span></div>
+    <div class="menu-card"><span>Cake (slice)</span><span>£3.50</span></div>
+  </div>
+  <p><a href="/menu" class="btn btn--primary">See the full menu</a></p>
+</section>
+
+<section id="reviews" class="section reviews">
+  <h2>Reviews</h2>
+  <p class="rating-badge">4.9★ — Rated by our customers on Google</p>
+  <!-- TODO(keiron): replace these three quotes with real Google review quotes he picks. Do not invent quotes. -->
+  <blockquote class="review-card">[Real Google review quote pending — Keiron to select]</blockquote>
+  <blockquote class="review-card">[Real Google review quote pending — Keiron to select]</blockquote>
+  <blockquote class="review-card">[Real Google review quote pending — Keiron to select]</blockquote>
+  <p><a href="https://www.google.com/search?q=Dennie%27s+Cafe+Cowfold+reviews" target="_blank" rel="noopener">Read our reviews on Google</a></p>
+  <!-- TODO(keiron): swap the link above for the direct Google Business Profile review link if available, and add the same QR/short link used on the till card here so site and till card match. -->
+</section>
+
+<section id="find-us" class="section find-us">
+  <h2>Find Us</h2>
+  <p>7a Elm Grove, Station Road, Cowfold, Horsham RH13 8DA</p>
+  <p><a href="tel:+441403900317">01403 900317</a></p>
+  <!-- TODO(keiron): confirm parking/one-line directions before launch — do not guess. -->
+  <p>[Parking / directions from the A272 pending — Keiron to confirm]</p>
+  <div class="map-embed">
+    <iframe src="https://maps.google.com/maps?q=7a+Elm+Grove,+Station+Road,+Cowfold,+Horsham+RH13+8DA&output=embed" loading="lazy" title="Map showing Dennie's Cafe, Cowfold"></iframe>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>Dennie's Cafe · 7a Elm Grove, Station Road, Cowfold, Horsham RH13 8DA · 01403 900317</p>
+</footer>
 
 </body>
 </html>
