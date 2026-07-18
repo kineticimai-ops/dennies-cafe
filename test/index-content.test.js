@@ -78,10 +78,13 @@ test('GET / footer has character-identical NAP', async () => {
 test('GET / includes the gallery images with lazy loading', async () => {
   const res = await fetch(`${baseUrl}/`);
   const body = await res.text();
-  assert.match(body, /\/images\/interior\.svg/);
-  assert.match(body, /\/images\/counter\.svg/);
-  assert.match(body, /\/images\/food-1\.svg/);
-  assert.match(body, /\/images\/coffee\.svg/);
+  assert.match(body, /\/images\/interior\.webp/);
+  assert.match(body, /\/images\/counter\.webp/);
+  assert.match(body, /\/images\/food-1\.webp/);
+  assert.match(body, /\/images\/coffee\.webp/);
+  assert.match(body, /\/images\/outdoor-seating\.webp/);
+  assert.match(body, /\/images\/upstairs\.webp/);
+  assert.match(body, /\/images\/pavement-sign\.webp/);
   assert.match(body, /loading="lazy"/);
 });
 

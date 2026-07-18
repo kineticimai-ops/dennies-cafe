@@ -25,8 +25,8 @@ test('GET /css/styles.css is served as CSS', async () => {
   assert.match(body, /\.find-us/);
 });
 
-test('GET /images/hero.svg is served as SVG', async () => {
-  const res = await fetch(`${baseUrl}/images/hero.svg`);
+test('GET /images/hero.webp is served as WebP', async () => {
+  const res = await fetch(`${baseUrl}/images/hero.webp`);
   assert.strictEqual(res.status, 200);
-  assert.match(res.headers.get('content-type'), /image\/svg\+xml/);
+  assert.match(res.headers.get('content-type'), /image\/webp/);
 });
