@@ -18,8 +18,9 @@ npm test         # runs the test suite (node --test)
 - [ ] Get exact geo coordinates for 7a Elm Grove, Station Road, Cowfold RH13 8DA from Google Maps (right-click the pin, copy lat/long) and update the JSON-LD `geo` block in `public/index.html`.
 - [ ] Get the till-card QR/short link from Keiron and add it next to the Google reviews link.
 - [ ] Confirm the rest of the menu Keiron wants listed (specials, extras beyond what's in `public/menu.html`).
-- [ ] Replace placeholder SVGs in `public/images/` with real compressed photos (WebP/JPEG, max ~1600px wide) once Keiron supplies them, and update the matching `<img src>` in `public/index.html`.
+- [ ] Replace placeholder SVGs in `public/images/` with real compressed photos (WebP/JPEG, max ~1600px wide) once Keiron supplies them, and update every matching `<img src>` in `public/index.html` (hero image plus the four gallery images) AND the `image` URL in the JSON-LD schema block, which currently still points at `hero.svg`.
 - [ ] Pull the live Google review count, or keep the "Rated 4.9★ by our customers on Google" wording to avoid a stale number.
+- [ ] Confirm "Family-run" in the meta description (`public/index.html`) is accurate, or get Keiron to approve/reword it — it was written into the spec without an explicit confirmation of who runs the café.
 
 ## Deployment (per keiron-stack)
 

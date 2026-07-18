@@ -75,6 +75,16 @@ test('GET / footer has character-identical NAP', async () => {
   assert.match(body, /01403 900317/);
 });
 
+test('GET / includes the gallery images with lazy loading', async () => {
+  const res = await fetch(`${baseUrl}/`);
+  const body = await res.text();
+  assert.match(body, /\/images\/interior\.svg/);
+  assert.match(body, /\/images\/counter\.svg/);
+  assert.match(body, /\/images\/food-1\.svg/);
+  assert.match(body, /\/images\/coffee\.svg/);
+  assert.match(body, /loading="lazy"/);
+});
+
 test('GET / has valid CafeOrCoffeeShop JSON-LD schema', async () => {
   const res = await fetch(`${baseUrl}/`);
   const body = await res.text();

@@ -130,6 +130,19 @@ img { max-width: 100%; display: block; }
   margin-top: 1.5rem;
 }
 
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gallery__image {
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
 .menu-card {
   background: white;
   border-radius: var(--radius);
