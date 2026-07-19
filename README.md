@@ -13,7 +13,7 @@ npm test         # runs the test suite (node --test)
 ## Open items before launch (do not skip — see design spec)
 
 - [x] Get the real one-line origin story from Keiron, replace the placeholder in `public/index.html` (About section).
-- [ ] Get 3 real Google review quotes from Keiron, replace the three placeholder `<blockquote>` entries in `public/index.html` (Reviews section). Never invent quotes.
+- [x] Get 3 real Google review quotes, replace the three placeholder `<blockquote>` entries in `public/index.html` (Reviews section) — done: Jonathan, Andy, Terry (first name only), pulled live from Google and picked by Keiron.
 - [ ] Get parking/directions line from Keiron, replace the placeholder in `public/index.html` (Find Us section).
 - [ ] Get exact geo coordinates for 7a Elm Grove, Station Road, Cowfold RH13 8DA from Google Maps (right-click the pin, copy lat/long) and update the JSON-LD `geo` block in `public/index.html`.
 - [ ] Get the till-card QR/short link from Keiron and add it next to the Google reviews link.
