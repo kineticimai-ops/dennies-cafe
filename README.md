@@ -14,9 +14,9 @@ npm test         # runs the test suite (node --test)
 
 - [x] Get the real one-line origin story from Keiron, replace the placeholder in `public/index.html` (About section).
 - [x] Get 3 real Google review quotes, replace the three placeholder `<blockquote>` entries in `public/index.html` (Reviews section) — done: Jonathan, Andy, Terry (first name only), pulled live from Google and picked by Keiron.
-- [ ] Get parking/directions line from Keiron, replace the placeholder in `public/index.html` (Find Us section).
+- [x] Get parking/directions line from Keiron, replace the placeholder in `public/index.html` (Find Us section). — done: "On-street parking only."
 - [x] Get exact geo coordinates for 7a Elm Grove, Station Road, Cowfold RH13 8DA from Google Maps (right-click the pin, copy lat/long) and update the JSON-LD `geo` block in `public/index.html`. — done: 50.990457, -0.27434.
-- [ ] Get the till-card QR/short link from Keiron and add it next to the Google reviews link.
+- [x] Get the till-card QR/short link from Keiron and add it next to the Google reviews link. — dropped: no QR link exists, not doing this for v1.
 - [ ] Confirm the rest of the menu Keiron wants listed (specials, extras beyond what's in `public/menu.html`).
 - [x] Replace placeholder SVGs in `public/images/` with real compressed photos — done: hero, interior, counter, food-1, coffee plus 3 gallery spares (outdoor-seating, upstairs, pavement-sign), all WebP.
 - [x] Pull the live Google review count, or keep the "Rated 4.9★ by our customers on Google" wording to avoid a stale number. — decided: keep the wording, no live count.
