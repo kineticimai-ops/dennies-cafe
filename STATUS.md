@@ -1,40 +1,23 @@
-# Status — 2026-07-19, ~04:22 AM
+# Status — 2026-07-19, ~11:15 PM
 
-## Deploys blocked: Render-side 403 on git clone
+## Resolved: Render 403 was transient — courtesy retry succeeded
 
-Every deploy since `925315a` (last one live, July 19 12:18 AM) has failed identically. Root cause is isolated to Render's infrastructure, not the code or the GitHub connection:
+Tonight's plan was a single courtesy retry of the Render deploy, with a fallback to migrating hosting to Cloudflare Pages if it 403'd again. It didn't need the fallback.
 
-- Build logs show `git clone https://github.com/kineticimai-ops/dennies-cafe.git` returning **403 Forbidden**, retried 4-5x, then giving up.
-- Checked and ruled out on the GitHub side: the "Render" GitHub App (installed 2 weeks ago) is not suspended, has "All repositories" access, and full read/write permissions on actions/checks/deployments/etc.
-- Checked and ruled out on the Render side: the stored `kineticimai-ops` git credential shows valid, recently-synced access to `dennies-cafe`.
-- Both status.render.com and githubstatus.com showed all-green, no incident, at the time of testing.
-- Tried and failed: plain retry, "Clear build cache & deploy," and a fresh retry after re-authenticating GitHub in the browser — all hit the same 403.
+- Triggered a plain "Deploy latest commit" from the Render dashboard (no cache clear, no re-auth — just a retry) on commit `15c56ef`.
+- Build log showed a clean `git clone https://github.com/kineticimai-ops/dennies-cafe` — no 403, no retries needed.
+- Build succeeded, deploy went live at 11:14 PM: "Available at your primary URL https://denniescafe.co.uk".
+- Verified directly on denniescafe.co.uk: all three real Google review quotes (Jonathan, Andy, Terry) are live, and the "On-street parking only" line is live. Both were previously stranded in unrelased commits (`f77c96a`, `113e150`).
 
-**Conclusion:** stuck/bugged state on Render's infrastructure specific to this service. Not fixable from outside Render.
-
-### Support ticket
-Not drafted or sent by Claude — Keiron opted to contact Render support directly. Ticket status/outcome unknown from this session.
-
-### Deploy retry test results (for reference)
-- `dep-d9e3sbernols73dh4dm0` — Manual Deploy of `f77c96a`/`113e150` after "Clear build cache & deploy": failed, 403 on clone (04:02 AM).
-- `dep-d9e41curnols73dhbqlg` — Manual Deploy of `113e150` after GitHub re-auth: failed, 403 on clone (04:12 AM).
-
-## Commits pushed but not live
-
-`origin/master` and local `HEAD` are both at `113e150`, three commits ahead of what's actually serving on denniescafe.co.uk:
-
-1. `f77c96a` — Add real Google review quotes (Jonathan, Andy, Terry)
-2. `e242ce5` — Update JSON-LD geo coordinates (50.990457, -0.27434) + close out 3 README items
-3. `113e150` — Add parking line ("On-street parking only") to Find Us section, drop QR code item
-
-As of last check, the live site still shows the pre-`f77c96a` state: placeholder review quotes, old/rough geo coordinates, and the placeholder parking text. Confirmed via direct fetch of denniescafe.co.uk and cross-checked against Render's deploy logs.
+**Conclusion:** the 403 was a stuck/bugged state on Render's infrastructure as suspected in the prior session, and it cleared on its own (or was fixed by Render) sometime between the last failed attempt (04:12 AM) and tonight's retry (11:14 PM). No code or config changes were needed. Cloudflare Pages migration was not started — Render remains the host.
 
 ## Checklist status (see README.md for full list)
 
-- **Parking line** — done, already committed (`113e150`). Not actually outstanding.
-- **Till-card QR link** — done (dropped). No QR link exists; Keiron confirmed not doing this for v1. Not actually outstanding.
-- **Full menu list** — done. Keiron reviewed the current `public/menu.html` contents and confirmed leave as-is, nothing missing. README item 20 checked off and the stale TODO comment in `menu.html` removed.
+- **Parking line** — done, live on production.
+- **Real Google review quotes** — done, live on production.
+- **Till-card QR link** — done (dropped), confirmed not doing this for v1.
+- **Full menu list** — done, `public/menu.html` confirmed final by Keiron.
 
-## Net: only one open blocker
+## Net: nothing outstanding
 
-Everything content-wise is done and pushed. The **only** thing standing between this and being live is the Render 403 clone bug, pending Render support's response.
+Everything content-wise is done, pushed, and now confirmed live on denniescafe.co.uk. No open blockers.
