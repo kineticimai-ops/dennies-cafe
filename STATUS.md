@@ -33,7 +33,7 @@ As of last check, the live site still shows the pre-`f77c96a` state: placeholder
 
 - **Parking line** — done, already committed (`113e150`). Not actually outstanding.
 - **Till-card QR link** — done (dropped). No QR link exists; Keiron confirmed not doing this for v1. Not actually outstanding.
-- **Full menu list** — Keiron reviewed the current `public/menu.html` contents and said leave as-is; no missing items identified. README item 20 and the stale TODO comment in `menu.html` still haven't been formally closed out to reflect that decision — small cleanup, not blocking.
+- **Full menu list** — done. Keiron reviewed the current `public/menu.html` contents and confirmed leave as-is, nothing missing. README item 20 checked off and the stale TODO comment in `menu.html` removed.
 
 ## Net: only one open blocker
 
